@@ -8,7 +8,7 @@ use File::Temp qw/tempdir tempfile/;
 use Log::Minimal;
 use Pod::Usage;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 local $Log::Minimal::PRINT = sub {
     my ( $time, $type, $message, $trace ) = @_;

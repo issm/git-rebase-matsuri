@@ -1,4 +1,7 @@
 Revision history for Perl extension App::gitrebasematsuri
 
+0.02    2011-12-24 09:00
+        - made objective & testable
+
 0.01    2011-12-23 17:00
         - original version
