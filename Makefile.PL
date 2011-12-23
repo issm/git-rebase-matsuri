@@ -1,13 +1,13 @@
-use inc::Module::Install;
-name 'App-gitrebasematsuri';
-all_from 'lib/App/gitrebasematsuri.pm';
-
-# requires '';
-
-tests 't/*.t';
-author_tests 'xt';
-
-test_requires 'Test::More';
-auto_set_repository;
-auto_include;
-WriteAll;
+use ExtUtils::MakeMaker;
+WriteMakefile(
+    NAME => 'App::gitrebasematsuri',
+    VERSION_FROM => 'lib/App/gitrebasematsuri.pm',
+    ABSTRACT => 'git-rebase matsuri.',
+    PREREQ_PM => {
+        'ExtUtils::MakeMaker' => 6.31,
+        'ExtUtils::Install'   => 1.46,
+        'Log::Minimal'        => 0.09,
+    },
+    LICENSE => 'perl',
+    EXE_FILES => [ 'bin/git-rebase-matsuri' ],
+);

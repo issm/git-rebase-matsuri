@@ -1,4 +1,5 @@
 package App::gitrebasematsuri;
+use 5.008009;
 use strict;
 use warnings;
 our $VERSION = '0.01';
