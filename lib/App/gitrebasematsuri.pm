@@ -10,16 +10,6 @@ use Pod::Usage;
 
 our $VERSION = '0.02';
 
-local $Log::Minimal::PRINT = sub {
-    my ( $time, $type, $message, $trace ) = @_;
-    for my $m ( split /\\n/, $message ) {
-        my $line = "$time [$type] $m";
-        $line .= " $trace"  if $type =~ /^(ERROR|CRITICAL)$/;
-        $line .= "\n";
-        print $line;
-    }
-};
-
 sub new {
     my ($class) = @_;
     my $self = bless +{
@@ -42,6 +32,17 @@ sub run {
         'V|version' => \$self->{show_version},
     );
     $self->{_GIT} ||= '/usr/bin/env git';
+
+    # adjust output of Log::Minimal
+    local $Log::Minimal::PRINT = sub {
+        my ( $time, $type, $message, $trace ) = @_;
+        for my $m ( split /\\n/, $message ) {
+            my $line = "$time [$type] $m";
+            $line .= " $trace"  if $type =~ /^(ERROR|CRITICAL)$/;
+            $line .= "\n";
+            print $line;
+        }
+    };
 
     # show version
     if ( $self->{show_version} ) {
