@@ -15,6 +15,7 @@ WriteMakefile(
         'Test::Flatten'       => 0.06,
         'File::chdir'         => 0.1006,
         'String::Random'      => 0.22,
+        'Try::Tiny'           => 0.11,
     },
     test => {
         TESTS => join( ' ', @TEST_TARGET ),
